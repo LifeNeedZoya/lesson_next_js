@@ -1,10 +1,12 @@
-import { useState } from "react";
-
+import Navbar from "./components/navbar";
+import RecentBlog from "./components/recentBlog";
+import SinglePost from "./components/singlePost";
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 text-green-900 bg-violet-500
-      `}
-    ></main>
+    <main className="bg-stone-600">
+      <Navbar />
+      <RecentBlog />
+      <SinglePost />
+    </main>
   );
 }
