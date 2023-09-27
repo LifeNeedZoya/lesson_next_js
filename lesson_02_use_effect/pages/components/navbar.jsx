@@ -2,18 +2,31 @@ import React from "react";
 import Logo from "./logo";
 import { BsSearch } from "react-icons/bs";
 import { IoIosApps } from "react-icons/io";
-
+import Link from "next/link";
 const Navbar = () => {
   const navDatas = ["Home", "Blog", "Contact"];
   const isOpen = true;
   return (
-    <div>
-      <li className="flex justify-around mt-4 bg-slate-600 ">
+    <div className="">
+      <li className="flex justify-around mt-4 ">
         <ul className=" pl-4">
           <Logo className=" w-2 h-1" />
         </ul>
         {isOpen ? (
-          <ul className="items-center flex ">{navDatas.map((Data) => Data)}</ul>
+          <ul className="items-center flex gap-3">
+            <li>
+              <Link href="/" />
+              Home
+            </li>
+            <li>
+              <Link href="/" />
+              Blogs
+            </li>
+            <li>
+              <Link href="/Footer" />
+              Contact
+            </li>
+          </ul>
         ) : (
           <button>
             <IoIosApps />
