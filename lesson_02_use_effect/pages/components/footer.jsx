@@ -6,8 +6,8 @@ import CopyrightLogo from "./copyrightLogo";
 const Footer = () => {
   const footerDatas = ["Home", "Blog", "Contact"];
   return (
-    <footer className="bg-slate-500 container mx-auto  ">
-      <div className="flex ml-3">
+    <footer className="bg-slate-300 container mx-auto pt-6  mt-10">
+      <div className="flex ml-3  ">
         <section className="flex-[0.3] ">
           <h3 className="mb-3">About</h3>
           <p className="mb-3">
@@ -32,7 +32,7 @@ const Footer = () => {
             </Link>
           </h5>
         </section>
-        <section className="flex-[0.3] flex gap-4">
+        <section className="flex-[0.3] flex gap-4 ">
           <Link href="https://www.facebook.com/">
             <BsFacebook />
           </Link>
