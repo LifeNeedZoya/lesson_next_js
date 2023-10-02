@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-
+import MediumCard from "./MediumCard";
+import SmallCard from "./SmallCard";
+import BigCard from "./BigCard";
 const RecentBlog = () => {
   const [recentBlogMid, setRecentBlogMid] = useState({});
   const [recentBlogSmall, setRecentBlogSmall] = useState([]);
@@ -16,14 +18,18 @@ const RecentBlog = () => {
     console.log("datas", data);
     setRecentBlogMid(data.shift());
     setRecentBlogSmall(data.slice(0, 2));
+    console.log("jijig", recentBlogSmall);
     setRecentBlogBig(data.pop());
   };
 
   return (
-    <section className="mt-4 container mx-auto  ">
+    <section className="mt-4 container mx-auto mb-[100px] ">
       Recent blog posts
-      <MediumCard blogData={recentBlogMid} />
-      <SmallCard blogData={recentBlogSmall} />
+      <div className="flex gap-4 mb-[100px]">
+        <MediumCard blogData={recentBlogMid} />
+
+        <SmallCard blogData={recentBlogSmall} />
+      </div>
       <BigCard blogData={recentBlogBig} />
     </section>
   );

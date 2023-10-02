@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@media screen and (max-width: 1024px) {
-  body {
-    margin-left: 3%;
-    margin-right: 3%;
-  }
+.blog-content p {
+  @apply my-4;
+}
+
+.blog-content h2 {
+  @apply font-semibold;
+  @apply text-2xl;
+}
+
+.blog-content h4 {
+  @apply font-normal;
+  @apply text-lg;
 }

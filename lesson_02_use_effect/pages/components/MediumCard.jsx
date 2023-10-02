@@ -2,8 +2,8 @@ import React from "react";
 
 const MediumCard = ({ blogData }) => {
   return (
-    <div className="flex bg-slate-500">
-      <div className=" w-full flex-1 ">
+    <div className="flex ">
+      <div className=" w-full flex-1  ">
         <div className="w-[592px] ">
           <img
             src={blogData?.social_image || ""}
@@ -12,7 +12,7 @@ const MediumCard = ({ blogData }) => {
             alt="alt"
           />
         </div>
-        {/* <h2 className="">{recentBlog[0].title}</h2>{" "} */}
+        <h2 className="font-bold">{blogData?.title}</h2>
         <div className="">{blogData?.description || "pic"}-gygy</div>
       </div>
     </div>

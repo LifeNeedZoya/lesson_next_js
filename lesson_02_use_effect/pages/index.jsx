@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <div>
       <RecentBlog />
-      <AllArticles />
+      <div className="mb-[100px]">
+        <AllArticles />
+      </div>
     </div>
   );
 };
