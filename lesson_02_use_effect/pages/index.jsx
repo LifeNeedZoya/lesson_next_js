@@ -1,6 +1,6 @@
 import React from "react";
-import AllArticles from "./components/AllArticless";
-import RecentBlog from "./components/recentBlog";
+import AllArticles from "../components/AllArticless";
+import RecentBlog from "../components/recentBlog";
 const Home = () => {
   return (
     <div>

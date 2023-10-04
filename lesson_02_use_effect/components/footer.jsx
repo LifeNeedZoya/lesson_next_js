@@ -6,7 +6,7 @@ import CopyrightLogo from "./copyrightLogo";
 const Footer = () => {
   const footerDatas = ["Home", "Blog", "Contact"];
   return (
-    <footer className="bg-slate-300 container mx-auto pt-6  mt-10">
+    <footer className="bg-slate-300 container mx-auto pt-6  mt-10    ">
       <div className="flex ml-3  ">
         <section className="flex-[0.3] ">
           <h3 className="mb-3">About</h3>
@@ -27,7 +27,7 @@ const Footer = () => {
             <Link href="/Blog">Blog</Link>
           </h5>
           <h5>
-            <Link href="/" footer>
+            <Link href="/Contact.jsx" footer>
               Contact
             </Link>
           </h5>
