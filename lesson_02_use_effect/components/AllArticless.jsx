@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const AllArticles = () => {
   const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     fetchData();
   }, []);

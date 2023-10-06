@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "./logo";
 import { BsSearch } from "react-icons/bs";
 import { IoIosApps } from "react-icons/io";
@@ -57,7 +57,6 @@ const Navbar = () => {
           />{" "}
           <button className=" w-9 h-9  ">
             <BsSearch width={50} height={50} />
-            {getData.filter(.lowercase.includes(getValue))}
           </button>
         </ul>
       </li>

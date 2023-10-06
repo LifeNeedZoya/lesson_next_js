@@ -4,6 +4,7 @@ import { formatDate } from "@/utils/functions";
 
 const BlogDetail = () => {
   const router = useRouter();
+
   const { id } = router.query;
 
   const [blogDetailData, setDetailData] = useState();

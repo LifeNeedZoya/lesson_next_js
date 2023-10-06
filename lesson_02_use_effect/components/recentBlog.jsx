@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import MediumCard from "./MediumCard";
 import SmallCard from "./SmallCard";
 import BigCard from "./BigCard";
-const RecentBlog = () => {
+const RecentBlog = (blog) => {
   const [recentBlogMid, setRecentBlogMid] = useState({});
   const [recentBlogSmall, setRecentBlogSmall] = useState([]);
   const [recentBlogBig, setRecentBlogBig] = useState({});

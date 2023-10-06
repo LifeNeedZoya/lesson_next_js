@@ -1,6 +1,36 @@
-import React from "react";
-import Button from "@mui/material/Button";
+import React, { useRef, useState } from "react";
+
+import emailjs from "@emailjs/browser";
+
+import styled from "styled-components";
+
 const Contact = () => {
+  const form = useRef();
+
+  const Button = styled.button``;
+
+  const [success, setSuccess] = useState(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_h01xtai",
+        "template_egpseiv",
+        form.current,
+        "Pj6rCxp6cUQWBHKbb"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSuccess(true);
+        },
+        (error) => {
+          console.log(error.text);
+          setSuccess(false);
+        }
+      );
+  };
   return (
     <div className="container mx-auto grid grid-cols-1  p-10 max-w-3xl">
       <h1 className="font-semibold text-4xl">Contact Us</h1>
@@ -30,19 +60,19 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#e7e7e9] p-6 mt-11">
+      <form className="bg-[#e7e7e9] p-6 mt-11" id="userForm" ref={form}>
         <h3>Leave a Message</h3>
         <div className="flex gap-2">
           <input
             type="text"
-            name=""
+            name="user_name"
             id=""
             placeholder="Your Name"
             className="flex-1"
           />
           <input
             type="email"
-            name=""
+            name="user_email"
             id=""
             placeholder="Your Email"
             className="flex-1"
@@ -50,21 +80,24 @@ const Contact = () => {
         </div>
         <input
           type="text"
-          name=""
+          name="na"
           id=""
           placeholder="Subject "
           className="my-6 w-full
           "
         />
-        <input
+        <textarea
           type="text"
           placeholder="Write a message"
-          className="block w-full h-32 mb-2 "
+          rows={5}
+          cols={50}
         />
-        <Button variant="contained" href="#contained-buttons">
-          Send a Message
+        <Button type="submit" form="userForm">
+          Send a message
         </Button>
-      </div>
+        {success && "Email is sent successfully. We will contact you soon"}
+        {!success && "email did not send "}
+      </form>
     </div>
   );
 };
