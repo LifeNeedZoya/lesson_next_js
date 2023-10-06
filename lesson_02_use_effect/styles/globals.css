@@ -4,6 +4,7 @@
 
 .blog-content p {
   @apply my-4;
+  @apply text-justify;
 }
 
 .blog-content h2 {

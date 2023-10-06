@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
-import CopyrightLogo from "./copyrightLogo";
+import CopyrightLogo from "./CopyrightLogo";
 const Footer = () => {
   const footerDatas = ["Home", "Blog", "Contact"];
   return (

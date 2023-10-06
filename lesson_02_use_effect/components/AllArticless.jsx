@@ -4,23 +4,27 @@ import Link from "next/link";
 
 const AllArticles = () => {
   const [blogs, setBlogs] = useState([]);
-
+  const [pages, setPages] = useState(6);
+  const handlePages = () => {
+    setPages(pages + 6);
+    console.log("Pages darglaa", pages);
+  };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [pages]);
 
   const fetchData = async () => {
-    const res = await fetch("https://dev.to/api/articles?per_page=9");
+    const res = await fetch(`https://dev.to/api/articles?per_page=${pages}`);
     const data = await res.json();
     console.log(data);
     setBlogs(data);
   };
 
   return (
-    <main className="container mx-auto border ">
+    <main className="md:container md:mx-auto md:border ">
       <section>
         <h2 className="font-bold">All blog posts</h2>
-        <div className="grid grid-cols-3 gap-3 rounded-2xl">
+        <div className="grid lg:grid-cols-3 lg:gap-3 lg:rounded-2xl grid-cols-1 md:grid-cols-2 md:gap-2 gap-1  ">
           {blogs.map((blog, i) => (
             <Link href={"/blog/" + blog.id}>
               <div className="border flex flex-col p-2 rounded-md ">
@@ -30,7 +34,7 @@ const AllArticles = () => {
                       blog.cover_image ? blog.cover_image : "/images/pic.jpg"
                     }
                     alt=""
-                    className=" w-[100%] h-[250px] p-4 rounded-2xl hover:scale-105  "
+                    className=" md:w-[100%] w-[80%] h-[250px] p-4 rounded-2xl hover:scale-105  "
                   />
                 </div>
                 <div className="ml-3">
@@ -56,6 +60,9 @@ const AllArticles = () => {
           ))}{" "}
         </div>
       </section>
+      <button className="bg-red-300 self-center " onClick={handlePages}>
+        Load more
+      </button>
     </main>
   );
 };

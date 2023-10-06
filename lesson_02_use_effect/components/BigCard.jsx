@@ -4,7 +4,7 @@ import { formatDate } from "@/utils/functions";
 const BigCard = ({ blogData }) => {
   return (
     <Link href={"/blog/" + blogData.id}>
-      <div className="flex border">
+      <div className="md:flex border">
         <div className="">
           <img src={blogData?.social_image || ""} width={400} height={300} />
           <span> {formatDate(blogData.created_at)}</span>

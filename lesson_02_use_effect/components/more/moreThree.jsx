@@ -1,9 +1,10 @@
 import css from "./style.module.css";
 import { Canvas } from "@react-three/fiber";
-import Box from "../box";
-import Controls from "../OrbitControl";
-import LightBulb from "../Light";
-import Floor from "../Floor";
+import Box from "../three/Box";
+import Controls from "../three/OrbitControl";
+import LightBulb from "../three/Light";
+import Draggable from "../three/Draggable";
+import { OrbitControls } from "@react-three/drei";
 
 export default function Home() {
   return (
@@ -16,13 +17,8 @@ export default function Home() {
         }}
       >
         <ambientLight color={"white"} intensity={0.2} />
-        <Light position={[0, 3, 0]} />
+        <boxGeometry args={(3, 3, 3)} />
         <LightBulb position={[0, 3, 0]} />
-        <Draggable>
-          <Box rotateX={3} rotateY={0.2} />
-        </Draggable>
-        <Controls />
-        <Floor position={[0, -1, 0]} />
       </Canvas>
     </div>
   );

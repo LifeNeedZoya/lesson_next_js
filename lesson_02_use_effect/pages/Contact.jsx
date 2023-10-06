@@ -7,9 +7,7 @@ import styled from "styled-components";
 const Contact = () => {
   const form = useRef();
 
-  const Button = styled.button``;
-
-  const [success, setSuccess] = useState(null);
+  const [success, setSuccess] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -23,14 +21,15 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setSuccess(true);
+          setSuccess("sent");
         },
         (error) => {
           console.log(error.text);
-          setSuccess(false);
+          setSuccess("not sent");
         }
       );
   };
+
   return (
     <div className="container mx-auto grid grid-cols-1  p-10 max-w-3xl">
       <h1 className="font-semibold text-4xl">Contact Us</h1>
@@ -60,7 +59,12 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <form className="bg-[#e7e7e9] p-6 mt-11" id="userForm" ref={form}>
+      <form
+        className="bg-[#e7e7e9] p-6 mt-11"
+        id="userForm"
+        ref={form}
+        onSubmit={sendEmail}
+      >
         <h3>Leave a Message</h3>
         <div className="flex gap-2">
           <input
@@ -92,11 +96,15 @@ const Contact = () => {
           rows={5}
           cols={50}
         />
-        <Button type="submit" form="userForm">
+        <button type="submit" form="userForm">
           Send a message
-        </Button>
-        {success && "Email is sent successfully. We will contact you soon"}
-        {!success && "email did not send "}
+        </button>
+
+        {success == "sent"
+          ? "Email is sent successfully. We will contact you soon"
+          : success == "not sent"
+          ? "email did not send "
+          : ""}
       </form>
     </div>
   );

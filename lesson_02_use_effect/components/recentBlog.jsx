@@ -26,7 +26,7 @@ const RecentBlog = (blog) => {
   return (
     <section className="mt-4 container mx-auto mb-[100px] ">
       Recent blog posts
-      <div className="flex gap-4 mb-[100px]">
+      <div className=" lg:flex lg:gap-4 lg:mb-[100px] md:mb-6 whitespace-wrap">
         <MediumCard blogData={recentBlogMid} />
 
         <SmallCard blogData={recentBlogSmall} />
