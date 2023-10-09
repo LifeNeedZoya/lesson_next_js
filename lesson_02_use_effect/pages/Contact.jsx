@@ -69,7 +69,7 @@ const Contact = () => {
         <div className="flex gap-2">
           <input
             type="text"
-            name="user_name"
+            name="from_name"
             id=""
             placeholder="Your Name"
             className="flex-1"
@@ -84,7 +84,7 @@ const Contact = () => {
         </div>
         <input
           type="text"
-          name="na"
+          name="Heading"
           id=""
           placeholder="Subject "
           className="my-6 w-full
@@ -92,6 +92,7 @@ const Contact = () => {
         />
         <textarea
           type="text"
+          name="message"
           placeholder="Write a message"
           rows={5}
           cols={50}
