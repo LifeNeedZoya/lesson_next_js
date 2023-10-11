@@ -24,6 +24,7 @@ const Navbar = () => {
   const fetchData = async () => {
     try {
       const res = await fetch("https://dev.to/api/articles?per_page=9");
+      console.log("res", res);
       const data = await res.json();
       console.log(data);
       setGetData(data);

@@ -19,7 +19,6 @@ const RecentBlog = (blog) => {
     console.log("datas", data);
     setRecentBlogMid(data.shift());
     setRecentBlogSmall(data.slice(0, 2));
-    console.log("jijig", recentBlogSmall);
     setRecentBlogBig(data.pop());
   };
 

@@ -14,7 +14,8 @@ const ErrorPage = () => {
           </h3>
         </Link>
       </div>
-      <div className="flex-1">
+
+      <div className="flex-1 border-l-4 border-l-pink-900 m-8">
         <img
           src="https://seosherpa.com/wp-content/uploads/2020/12/404-error-page-header-transparent.png"
           alt=""
