@@ -16,3 +16,6 @@
   @apply font-normal;
   @apply text-lg;
 }
+*::selection {
+  background-color: grey;
+}

@@ -1,15 +1,28 @@
 import React from "react";
-import AllArticles from "../components/AllArticless";
 import RecentBlog from "../components/recentBlog";
-const Home = () => {
+import { useState } from "react";
+import AllArticles from "@/components/AllArticless";
+const Home = ({ blogs }) => {
+  const [pages, setPages] = useState(0);
+  function PagePlus() {
+    setPages(pages + 3);
+  }
   return (
     <div>
-      <RecentBlog />
-      <div className="mb-[100px]">
-        <AllArticles />
-      </div>
+      <RecentBlog blogs={blogs} />
+      <AllArticles blogs={blogs} />
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch(`https://dev.to/api/articles?per_page=6`);
+  const blogs = await res.json();
+  return {
+    props: {
+      blogs,
+    },
+  };
+}
 
 export default Home;

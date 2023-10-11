@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import Logo from "./logo";
 import Loader from "./Loader";
 import { BsSearch } from "react-icons/bs";
-import { IoIosApps } from "react-icons/io";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 const Navbar = () => {
+  const isActive = usePathname();
   const [getValue, setGetValue] = useState("");
   const [getData, setGetData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const navDatas = ["Home", "Blog", "Contact"];
+  const navDatas = [
+    { name: "Home", path: "/" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },
+    { name: "3D-Model", path: "/three" },
+  ];
 
   const isOpen = true;
 
@@ -47,15 +53,20 @@ const Navbar = () => {
         </ul>
 
         <ul className="items-center flex justify-around md:gap-2 lg:gap-3">
-          <li>
-            <Link href={"/"}> Home</Link>
-          </li>
-          <li>
-            <Link href={"/blog"}>Blogs</Link>
-          </li>
-          <li>
-            <Link href={"/Contact"}> Contact</Link>
-          </li>
+          {navDatas.map((data, i) => (
+            <li>
+              <Link
+                className={` ${
+                  isActive === data.path
+                    ? "text-red-600 "
+                    : "hover:text-green-500"
+                }`}
+                href={data.path}
+              >
+                {data.name}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <ul className="flex border sm:w-auto   border-x-white  rounded-lg bg-gray-200 ">
