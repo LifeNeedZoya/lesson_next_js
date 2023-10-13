@@ -14,7 +14,6 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
-    { name: "3D-Model", path: "/three" },
   ];
 
   const isOpen = true;

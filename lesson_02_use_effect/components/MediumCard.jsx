@@ -1,23 +1,18 @@
 import React from "react";
 import Link from "next/link";
 import { formatDate } from "@/utils/functions";
-const MediumCard = ({ blogData }) => {
+const MediumCard = ({ article }) => {
   return (
     <div className="flex ">
-      <Link href={"/blog/" + blogData.id}>
-        <div className=" w-full flex-1  ">
-          <div className="w-[592px] ">
-            <img
-              src={blogData?.social_image || ""}
-              width={592}
-              height={290}
-              alt="alt"
-            />
-          </div>
-          <h2 className="font-bold">{blogData?.title}</h2>
-          <div className="">{blogData?.description || "pic"}-gygy</div>
+      <div className=" w-full  md:block">
+        <div className="w-full md:w-full flex-1 ] ">
+          <img src={article?.social_image || ""} alt="alt" className="w-full" />
         </div>
-      </Link>
+        <div className="flex-1">
+          <h2 className="font-bold">{article?.title}</h2>
+          <div className="">{article?.description || "pic"}</div>
+        </div>
+      </div>
     </div>
   );
 };

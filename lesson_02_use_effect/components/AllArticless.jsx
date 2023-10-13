@@ -7,7 +7,6 @@ const AllArticles = () => {
   const [pages, setPages] = useState(6);
   const handlePages = () => {
     setPages(pages + 6);
-    console.log("Pages darglaa", pages);
   };
   useEffect(() => {
     fetchData();
@@ -21,7 +20,7 @@ const AllArticles = () => {
   };
 
   return (
-    <main className="md:container md:mx-auto md:border ">
+    <main className="md:container md:mx-auto  ">
       <section>
         <h2 className="font-bold">All blog posts</h2>
         <div className="grid lg:grid-cols-3 lg:gap-3 lg:rounded-2xl grid-cols-1 md:grid-cols-2 md:gap-2 gap-1  ">
@@ -34,7 +33,7 @@ const AllArticles = () => {
                       blog.cover_image ? blog.cover_image : "/images/pic.jpg"
                     }
                     alt=""
-                    className=" md:w-[100%] w-[80%] h-[250px] p-4 rounded-2xl hover:scale-105  "
+                    className=" sm:w-[80%] h-[250px] p-4 rounded-2xl hover:scale-105 m-[8%] md:w-full md:m-0  "
                   />
                 </div>
                 <div className="ml-3">
@@ -60,9 +59,15 @@ const AllArticles = () => {
           ))}{" "}
         </div>
       </section>
-      <button className="bg-red-300 self-center " onClick={handlePages}>
-        Load more
-      </button>
+      <div className="flex justify-center item-center">
+        <button
+          className=" p-2
+          border rounded-lg mt-2"
+          onClick={handlePages}
+        >
+          Load more
+        </button>
+      </div>
     </main>
   );
 };

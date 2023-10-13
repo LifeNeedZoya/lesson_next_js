@@ -6,11 +6,11 @@ const SmallCard = ({ blogData }) => {
     <div className="  md:flex md:flex-col gap-5">
       {blogData.map((item) => (
         <Link href={"/blog/" + item.id}>
-          <div className=" flex border truncate">
-            <img src={item.social_image} width={300} height={100} />
+          <div className=" md:flex border truncate">
+            <img src={item.social_image} className="w-full md:w-[400px]" />
             <div className="gap-5 ">
-              <span className="m-2">{blogData.created_at} </span>
-              <h1 className="font-semibold w-full m-2">{item.title}</h1>
+              <p className="m-2">{item.readable_publish_date} </p>
+              <h1 className="font-semibold  m-2 ">{item.title}</h1>
               <span className=" m-2">{item.description}</span>
             </div>
           </div>

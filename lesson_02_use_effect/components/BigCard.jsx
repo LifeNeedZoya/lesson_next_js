@@ -5,11 +5,14 @@ const BigCard = ({ blogData }) => {
   return (
     <Link href={"/blog/" + blogData.id}>
       <div className="md:flex border">
-        <div className="">
-          <img src={blogData?.social_image || ""} width={400} height={300} />
-          <span> {formatDate(blogData.created_at)}</span>
+        <div className=" mx-2 flex-[0.4]">
+          <img
+            src={blogData?.social_image || ""}
+            className="w-full md:w-[400px] lg:w-[500px] "
+          />
         </div>
-        <div className=" ml-5 flex flex-col justify-around ">
+        <div className=" md:ml-3 flex flex-col justify-around flex-[0.6]">
+          <span> {formatDate(blogData.created_at)}</span>
           <h2 className="font-semibold">{blogData.title}</h2>{" "}
           <span>{blogData.description}</span>
         </div>
