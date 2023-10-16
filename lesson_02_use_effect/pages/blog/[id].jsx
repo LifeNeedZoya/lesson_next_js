@@ -24,7 +24,6 @@ const BlogDetail = ({ article }) => {
 
   return (
     <div className="">
-      <RecentBlog article={article} />
       <div className="container  mx-auto mt-24 max-w-4xl">
         <div>
           <>
@@ -69,6 +68,7 @@ export async function getStaticProps(context) {
   const article = await res.json();
   return {
     props: { article },
+    revalidate: 100,
   };
 }
 
@@ -80,6 +80,7 @@ export async function getStaticPaths() {
   );
   const data = await resSecond.json();
   {
+    console.log("first4data", data);
     articles.concat(data);
   }
   const ids = articles.map((article) => article.id);
@@ -90,6 +91,6 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 }

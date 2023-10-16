@@ -1,5 +1,5 @@
 import React from "react";
-import AllArticles from "@/components/AllArticless";
+import AllArticles from "@/components/NinePosts";
 const Blog = () => {
   return (
     <div>

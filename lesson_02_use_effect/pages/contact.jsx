@@ -43,15 +43,15 @@ const Contact = () => {
             dolore magna aliqua. Ut enim ad minim veniam
           </p>
         </div>
-        <div className="flex mt-10">
-          <div className="border flex-1 p-4">
+        <div className="sm:flex mt-10">
+          <div className="border sm:flex-1 p-4">
             <h3 className="font-bold">Address</h3>
             <address className="text-#696A75;">
               {" "}
               Address 1328 Oak Ridge Drive, <br /> Saint Louis, Missouri
             </address>
           </div>
-          <div className="border flex-1 p-4">
+          <div className="border sm:flex-1 p-4">
             <h3 className="font-bold">Contact</h3>
             <p className="text-#996A75 font-sans">
               Contact 313-332-8662 <br /> info@email.com
@@ -66,20 +66,20 @@ const Contact = () => {
         onSubmit={sendEmail}
       >
         <h3>Leave a Message</h3>
-        <div className="flex gap-2">
+        <div className="sm:flex gap-2 w-11/12 ">
           <input
             type="text"
             name="from_name"
             id=""
             placeholder="Your Name"
-            className="flex-1"
+            className=" w-1/2 border"
           />
           <input
             type="email"
             name="user_email"
             id=""
             placeholder="Your Email"
-            className="flex-1"
+            className=" w-1/2"
           />
         </div>
         <input
@@ -87,15 +87,15 @@ const Contact = () => {
           name="Heading"
           id=""
           placeholder="Subject "
-          className="my-6 w-full
+          className="my-6
+          w-11/12
           "
         />
         <textarea
           type="text"
           name="message"
           placeholder="Write a message"
-          rows={5}
-          cols={50}
+          className="w-11/12 "
         />
         <button type="submit" form="userForm">
           Send a message

@@ -7,7 +7,7 @@ const SmallCard = ({ blogData }) => {
       {blogData.map((item) => (
         <Link href={"/blog/" + item.id}>
           <div className=" md:flex border truncate">
-            <img src={item.social_image} className="w-full md:w-[400px]" />
+            <img src={item.social_image} className="w-full md:w-1/2" />
             <div className="gap-5 ">
               <p className="m-2">{item.readable_publish_date} </p>
               <h1 className="font-semibold  m-2 ">{item.title}</h1>

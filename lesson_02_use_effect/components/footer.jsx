@@ -32,7 +32,7 @@ const Footer = () => {
             </Link>
           </h5>
         </section>
-        <section className="flex-[0.3] flex gap-4 ">
+        <section className="flex-[0.3] sm:flex gap-5 content-center ">
           <Link href="https://www.facebook.com/">
             <BsFacebook />
           </Link>
