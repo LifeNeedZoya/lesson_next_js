@@ -4,27 +4,36 @@ import { useState } from "react";
 import AllArticles from "@/components/NinePosts";
 import { useRouter } from "next/router";
 
-const Home = ({ blogs }) => {
-  const [pages, setPages] = useState(0);
-  function PagePlus() {
-    setPages(pages + 3);
-  }
+const Home = ({ blogs, page }) => {
+  const router = useRouter();
 
   return (
     <div>
       <RecentBlog blogs={blogs} />
       <AllArticles blogs={blogs} />
-      <button>load more</button>
+      <button
+        onClick={() => {
+          console.log("Clicked");
+          const pg = Number(page) + 3;
+          router.replace("?page=" + pg);
+        }}
+        className="bg-slate-700 self-center"
+      >
+        load more
+      </button>
     </div>
   );
 };
 
-export async function getServerSideProps() {
-  const res = await fetch(`https://dev.to/api/articles?per_page=${pages}`);
+export async function getServerSideProps(context) {
+  let { page } = context.query;
+  page = page || 3;
+  const res = await fetch(`https://dev.to/api/articles?per_page=${page}`);
   const blogs = await res.json();
   return {
     props: {
       blogs,
+      page,
     },
   };
 }

@@ -4,16 +4,13 @@ import Link from "next/link";
 
 const AllArticles = () => {
   const [blogs, setBlogs] = useState([]);
-  const [pages, setPages] = useState(6);
-  const handlePages = () => {
-    setPages(pages + 6);
-  };
+
   useEffect(() => {
     fetchData();
-  }, [pages]);
+  }, []);
 
   const fetchData = async () => {
-    const res = await fetch(`https://dev.to/api/articles?per_page=${pages}`);
+    const res = await fetch(`https://dev.to/api/articles?per_page=${6}`);
     const data = await res.json();
     console.log(data);
     setBlogs(data);
@@ -59,15 +56,6 @@ const AllArticles = () => {
           ))}{" "}
         </div>
       </section>
-      <div className="flex justify-center item-center">
-        <button
-          className=" p-2
-          border rounded-lg mt-2"
-          onClick={handlePages}
-        >
-          Load more
-        </button>
-      </div>
     </main>
   );
 };

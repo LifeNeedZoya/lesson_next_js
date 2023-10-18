@@ -3,7 +3,7 @@ import AllArticles from "@/components/NinePosts";
 const Blog = () => {
   return (
     <div>
-      <AllArticles />
+      <NinePosts />
     </div>
   );
 };

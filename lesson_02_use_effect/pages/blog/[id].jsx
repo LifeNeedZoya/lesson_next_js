@@ -23,38 +23,36 @@ const BlogDetail = ({ article }) => {
   // }, []);
 
   return (
-    <div className="">
-      <div className="container  mx-auto mt-24 max-w-4xl">
-        <div>
-          <>
-            <div>
-              <h1 className="text-4xl font-semibold text-slate-900 ">
-                {article.title}
-              </h1>
-              <div className="flex items-center mt-5 gap-5">
-                <div className="flex items-center">
-                  <img
-                    className="w-8 h-8 rounded-full"
-                    src={article.user.profile_image}
-                    alt="avatar"
-                  />
-                  <h4 className="ml-2 text-lg text-gray-500">
-                    {article.user.name}
-                  </h4>
-                </div>
-                <p className="text-lg text-gray-500">
-                  {formatDate(article.created_at)}
-                </p>
+    <div className="container  mx-auto mt-24 max-w-4xl">
+      <div>
+        <>
+          <div>
+            <h1 className="text-4xl font-semibold text-slate-900 ">
+              {article.title}
+            </h1>
+            <div className="flex items-center mt-5 gap-5">
+              <div className="flex items-center">
+                <img
+                  className="w-8 h-8 rounded-full"
+                  src={article.user.profile_image}
+                  alt="avatar"
+                />
+                <h4 className="ml-2 text-lg text-gray-500">
+                  {article.user.name}
+                </h4>
               </div>
+              <p className="text-lg text-gray-500">
+                {formatDate(article.created_at)}
+              </p>
             </div>
-            <div className="mt-8">
-              <div
-                className="blog-content"
-                dangerouslySetInnerHTML={{ __html: article.body_html }}
-              ></div>
-            </div>
-          </>
-        </div>
+          </div>
+          <div className="mt-8">
+            <div
+              className="blog-content"
+              dangerouslySetInnerHTML={{ __html: article.body_html }}
+            ></div>
+          </div>
+        </>
       </div>
     </div>
   );
@@ -80,7 +78,6 @@ export async function getStaticPaths() {
   );
   const data = await resSecond.json();
   {
-    console.log("first4data", data);
     articles.concat(data);
   }
   const ids = articles.map((article) => article.id);
