@@ -7,10 +7,6 @@ import { PiRowsDuotone } from "react-icons/pi";
 
 const Navbar = () => {
   const isActive = usePathname();
-  const [getValue, setGetValue] = useState("");
-  const [getData, setGetData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
   const handleDrawer = () => {
@@ -22,8 +18,6 @@ const Navbar = () => {
     { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
-
-  const isOpen = true;
 
   return (
     <div className="mx-auto container flex sm:justify-between">
@@ -49,7 +43,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <ul className=" border sm:w-auto   border-x-white  rounded-lg bg-gray-200 md:flex gap-3 hidden  md: visible">
+        <ul className=" border sm:w-auto   border-x-white  rounded-lg bg-gray-200 md:flex gap-3 hidden  md:visible">
           {" "}
           <input
             type="text"

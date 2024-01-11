@@ -1,6 +1,5 @@
 import React from "react";
 import RecentBlog from "../components/recentBlog";
-import { useState } from "react";
 import AllArticles from "@/components/NinePosts";
 import { useRouter } from "next/router";
 
@@ -13,7 +12,6 @@ const Home = ({ blogs, page }) => {
       <AllArticles blogs={blogs} />
       <button
         onClick={() => {
-          console.log("Clicked");
           const pg = Number(page) + 3;
           router.replace("?page=" + pg);
         }}

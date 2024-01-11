@@ -3,7 +3,7 @@ import MediumCard from "./MediumCard";
 import SmallCard from "./SmallCard";
 import BigCard from "./BigCard";
 
-const RecentBlog = ({ article }) => {
+const RecentBlog = () => {
   const [recentBlogMid, setRecentBlogMid] = useState({});
   const [recentBlogSmall, setRecentBlogSmall] = useState([]);
   const [recentBlogBig, setRecentBlogBig] = useState({});
